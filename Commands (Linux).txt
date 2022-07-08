@@ -1,0 +1,133 @@
+                                    Operating System Lab.
+                                 ==========================
+-------------
+File Commands:                                                       
+-------------
+ls                -> show directory list 
+ls*.txt           -> list all files which has txt extesion in current dir   
+ls.ltr            -> list files in reverse time order       
+ls -al / ls -l    -> formatted listing with hidden files
+cd dir            -> change to directory              (example: cd dir(folder_name))
+cd ~              -> go to your home directory
+cd ..             -> go up(back) one directory      (one step)
+cd -              -> go to last directory you were just in
+pwd               -> show current directory           (folder or location)
+------------------------file-------------------------------------------------
+touch file        -> create or update file
+cat > file        -> paleces standard input into file (you can type the text you want to insert in the file) ,then Ctrl+z (means stop)
+cat file          -> you can display the contents of the file
+rm file           -> delete file
+rm -f file        -> force remove file
+cp file1 file2    -> copy file1 to file2
+mv file1 file2    -> move file1 to file2
+more file         -> output the contents of file
+head file         -> output the 1st 10 lines of file
+tail file         -> output the last 10 lines of file
+tail -f file      -> output the contents of file as it grows,starting with the last 10 lines
+ln -s file link   -> create symbolic link ,link to file
+find file         -> search for file that meet a desired criteria
+
+------------------------file with directory-------------------------------------------------
+touch /home/kali/folder_name/file  --> create a file or update
+cp /home/kali/folder_name/file /home/kali/folder_name/file1 --> copy file to file1
+rm /home/kali/folder_name/file --> remove or delete file
+
+------------------------folder---------------------------------------------------
+mkdir dir         -> create a directory dir (create folder) && (if we gave wide space into a folder,then simply use mkdir new\ folder) 
+rm -r dir         -> delete directory dir   (delete folder dir)
+rm -rf dir        -> force remove directory dir*
+cp -r dir1 dir2   -> copy dir1 to dir2; create dir2 if it doesn't exist
+mv -T dir1 dir2   -> move dir1 to dir2
+
+
+------------------------folder with directory-------------------------------------------------
+mkdir /home/kali/folder_name/folder  --> create a folder
+cp -r /home/kali/folder_name/folder1 /home/kali/folder_name/folder2 --> copy folder1 to folder2
+rm -r /home/kali/folder_name/folder --> remove or delete folder
+
+----------------------------
+Diretory and File Permission:
+----------------------------
+
+ls -l                -> see permission list or directory or file (which has premission)
+chmod ugo+rwx file   -> read,write,execute permisstion to user,group,others in a file
+or, chmod a+rwx file ->  read,write,execute permisstion  to user,group,others in a file (always keep serial maintain)
+chmod ugo-rwx file   -> read,write,execute permisstion denied to user,group,others in a file
+or, chmod a-rwx file ->  read,write,execute permisstion denied to user,group,others in a file (always keep serial maintain -->(ugo & rwx))
+chmod ug+rw *        ->
+chmod a-wx *         ->
+-----------------------------------------------sort----------------------------------------------------------------
+sort file1.txt   -> ascending order
+sort -r file1.txt -> discending order
+sort file1.txt file2.txt
+sort /home/kali/Desktop/Exercise/text3.txt
+
+-----------------------------------------------word count(wc)------------------------------------------------------
+wc file1.txt    -> (number of lines, number of words, number of bytes)
+wc -l file1.txt -> To see the number of lines
+wc -w file1.txt -> To see the number of words
+
+---------------------------------------------redirection-----------------------------------------------------------
+head -n(n = range) file1 > file2   -> transfer(copy) n number of lines from file1 to file2 (rewrite)
+tail -n(n = range) file1 > file2   -> transfer(copy) n number of lines from file1 to file2 [(backward) (rewrite)]
+head -2 text4.txt < destination.txt ‐> send output to file instead of the terminal window()   
+---------------------------------------------append--------------------------------------------------------------
+head -n(n = range) file1 >> file2  -> transfer n number of lines from file1 to file2 and sit at last
+tail -n(n = range) file1 >> file2  -> transfer n number of lines from file1 to file2  and sit at last
+-----------------------------------------piping------------------------------------------------------------------
+head -n file | tail -n   -> 
+head -4 | tail -2 file1.txt
+sort file1.txt file2.txt | head -4
+tail -2 file1.txt | sort ######
+head -20 text3.txt | tail -9
+head -20 /home/kali/Desktop/Exercise/text3.txt | tail -6 | sort
+
+-------------------------------------------------------------------------------
+#### echo "OS" -> just print
+------------------------------------------extra--------------------------------
+sed -i -e '1iMy name is Kali\' destination.txt -> Insert the line at the top of the text
+sed '1d' file -> delete first line in the file
+sed '$d' sed-demo.txt ->delete last line in the file
+
+-----------------------------------------------Final Terms----------------------------------------------------------
+grem command: The grep filter searches a file for a particular pattern of characters, and displays all lines that contain that pattern.
+============
+grep "oo" file -> This prints out all the lines that do all the pattern match.
+grep -v "oo" forgrep.txt -> This prints out all the lines that don not matches the patterns.
+grep -i "Oo" file  -> Ignores, case for matchings.
+grep -c "oo" forgrep.txt -> This prints only a count of the lines that match a pattern.
+grep -ic "Oo" forgrep.txt  -> First play case insencesetive then prints only a count of the lines that match a pattern.
+grep -h 'oo' forgrep.txt ->Display the matched lines, but do not display the filenames.
+grep -n 'oo' forgrep.txt ->Display the matched lines with their line numbers.
+
+find(search)single word 
+-----------------------
+grep -o "oo" forgrep.txt -> print only the match part of a lines,show with each such part on a separate output lines.
+grep -w 'fool' forgrep.txt -> match whole words.
+grep -wv 'fool' forgrep.txt -> First match 'fool' words, and then prints out all lines except those lines where 'fool' word stay.
+grep -ivw 'moon' forgrep.txt ->
+
+see the only single word(except the line)
+----------------------------------------
+grep -io 'noon' forgrep.txt   -> It will saw the noon word.
+grep -iwo 'noon' forgrep.txt ->
+grep -ioc 'noon' forgrep.txt ->
+
+grep -i '.oo.' forgrep.txt -> first one character then in middle oo and at last another one character. 
+grep -io '.oo.' forgrep.txt ->
+grep -wno '.oo.' forgrep.txt ->
+grep -wno '.*oo.' forgrep.txt ->
+grep -wno '.ool*.' forgrep.txt -> l exist one time, one more time, and also not stay.
+
+
+grep "^.ool" forgrep.txt 
+
+
+
+grep ^.[0-9].*$ -> List all the files in the current directory whose second character is a digit
+1. (touch new_file) 2. chmod 000 new_file  -> Create a regular file. Write a command to remove all permissions from the file.
+
+
+
+
+

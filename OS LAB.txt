@@ -1,0 +1,15 @@
+touch /home/kali/Downloads/a.txt
+touch /home/kali/Documents/b.txt
+cat > /home/kali/Downloads/a.txt
+cat > /home/kali/Documents/b.txt
+cp /home/kali/Downloads/a.txt /home/kali/Documents/c.txt 
+head /home/kali/Documents/b.txt >> /home/kali/Documents/c.txt 
+
+find ./ -type f- -name '^[F][0-100]$.txt
+
+touch taskfile1.txt
+touch taskfile2.txt
+sort taskfile1.txt taskfile2.txt
+head -10 taskfile1.txt | tail -8 >>  myfile.txt
+head -10 taskfile2.txt | tail -8 >>  myfile.txt
+cat taskfile1.txt taskfile2.txt 
